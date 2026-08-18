@@ -1,302 +1,365 @@
-🫀 Heart Disease Prediction
-
-An end-to-end Machine Learning project that predicts the presence or
-absence of heart disease from clinical patient measurements.
-
-Educational disclaimer: This project is for learning and
-demonstration purposes only. It is not a medical diagnostic system and
-should not be used to make healthcare decisions.
-
+❤️ Heart Disease Prediction
 📌 Project Overview
 
-Machine Learning type: Supervised Learning
+This project is a Machine Learning based Heart Disease Prediction System developed using Python.
 
-Problem type: Binary Classification
+The main objective of this project is to predict whether a patient has heart disease based on clinical information such as age, sex, chest pain type, blood pressure, cholesterol, maximum heart rate, and other medical attributes.
 
-Target variable: Heart Disease
+The project follows a complete Machine Learning workflow, including data understanding, exploratory data analysis, data cleaning, preprocessing, model building, evaluation, hyperparameter tuning, model saving, prediction, and Streamlit deployment.
 
-Classes: 0 = Absence, 1 = Presence
+Note: This project is created for educational purposes only and should not be used as a medical diagnosis system.
 
-Train/test split: 80% / 20%
+🎯 1. Problem Statement
 
-Random state: 42
+Heart disease is one of the major health problems worldwide. Early prediction can help identify patients who may be at higher risk.
 
-Final model: Tuned Logistic Regression
+The objective of this project is to develop a Machine Learning classification model that predicts the presence or absence of heart disease using patient clinical data.
 
-Hyperparameter tuning: GridSearchCV
+Business Objective
 
-Cross-validation: 5-fold StratifiedKFold
+The system is designed to:
 
-Primary tuning metric: ROC-AUC
+Predict the possibility of heart disease based on patient information.
 
-🎯 Objective
+Provide a simple and user-friendly prediction interface.
 
-The objective is to build a classification model that predicts whether a
-patient is likely to have heart disease using features such as age,
-blood pressure, cholesterol, chest pain type, maximum heart rate,
-exercise-induced angina, ST depression, and other clinical measurements.
+Display the predicted result and probability.
 
-The project follows a complete Machine Learning workflow:
+Demonstrate a complete Machine Learning workflow.
 
-Data collection
+📂 2. Data Collection
+Dataset Name
 
-Dataset inspection
+Heart Disease Prediction Dataset
 
-Exploratory Data Analysis (EDA)
+Dataset File
 
-Missing-value and duplicate checks
+Heart_Disease_Prediction.csv
 
-Target-distribution analysis
+Dataset Source
 
-Outlier inspection
+The dataset is based on the UCI Heart Disease dataset and is commonly available through public Machine Learning repositories such as Kaggle.
 
-Data cleaning
+Dataset Type
 
-Train/test splitting
+This is a real-world medical dataset used for Machine Learning experimentation and educational purposes.
 
-Feature preprocessing
+🔍 3. Data Understanding
 
-Model training
+The dataset was analyzed to understand its structure and contents.
 
-Model comparison
+The following aspects were checked:
 
-Cross-validation
+Number of rows and columns
 
-Hyperparameter tuning
+Column names
 
-Final model evaluation
+Data types
 
-Feature-importance/coefficients analysis
-
-Model saving
-
-Prediction application
-
-Streamlit deployment
-
-📊 Dataset
-
-The notebook uses the Heart Disease Prediction dataset obtained from
-Kaggle and based on the UCI Heart Disease dataset.
-
-The cleaned dataset contains 270 records and 14 columns:
-
-13 input features
-
-1 target column
-
-Features
-
-Feature                     Description
-
-Age                       Patient age
-Sex                       Sex encoded numerically
-Chest pain type           Chest pain category
-BP                        Blood pressure
-Cholesterol               Cholesterol level
-FBS over 120              Fasting blood sugar indicator
-EKG results               EKG result category
-Max HR                    Maximum heart rate
-Exercise angina           Exercise-induced angina
-ST depression             ST-segment depression
-Slope of ST               ST slope category
-Number of vessels fluro   Number of major vessels
-Thallium                  Thallium test category
-Heart Disease             Target variable
-
-The target variable is already numerically encoded, so additional target
-encoding is not required.
-
-🔎 Exploratory Data Analysis
-
-The notebook performs:
-
-Dataset shape and structure inspection
-
-Data-type inspection
-
-Descriptive statistics
-
-Missing-value analysis
-
-Duplicate-value analysis
+Target variable
 
 Target distribution
 
-Age distribution
+Missing values
 
-Cholesterol distribution
+Duplicate records
 
-Maximum-heart-rate distribution
+Feature values
 
-Age vs. heart disease
+Dataset shape
 
-Cholesterol vs. heart disease
+Features
 
-Maximum heart rate vs. heart disease
+Feature
 
-Chest pain vs. target
+	
+
+Description
+
+
+
+
+Age
+
+	
+
+Age of the patient
+
+
+
+
+Sex
+
+	
+
+Sex of the patient
+
+
+
+
+Chest pain type
+
+	
+
+Type of chest pain
+
+
+
+
+BP
+
+	
+
+Blood pressure
+
+
+
+
+Cholesterol
+
+	
+
+Cholesterol level
+
+
+
+
+FBS over 120
+
+	
+
+Fasting blood sugar indicator
+
+
+
+
+EKG results
+
+	
+
+Electrocardiogram result
+
+
+
+
+Max HR
+
+	
+
+Maximum heart rate
+
+
+
+
+Exercise angina
+
+	
+
+Exercise-induced angina
+
+
+
+
+ST depression
+
+	
+
+ST depression value
+
+
+
+
+Slope of ST
+
+	
+
+Slope of ST
+
+
+
+
+Number of vessels fluro
+
+	
+
+Number of major vessels
+
+
+
+
+Thallium
+
+	
+
+Thallium test result
+
+Target Variable
+
+The target variable is Heart Disease.
+
+The original target values were:
+
+Absence
+
+Presence
+
+For Machine Learning, they were converted into:
+
+Absence = 0
+
+Presence = 1
+
+📈 4. Exploratory Data Analysis
+
+Exploratory Data Analysis was performed to understand the dataset and identify relationships between different features.
+
+EDA Performed
+
+Summary statistics
+
+Missing value analysis
+
+Duplicate analysis
+
+Target distribution
+
+Univariate analysis
+
+Bivariate analysis
 
 Correlation analysis
 
-⚖️ Class Balance
+Outlier analysis
 
-The target distribution is reasonably balanced:
+Visualizations
 
-Absence: 150 records --- 55.56%
+The analysis includes visualizations such as:
 
-Presence: 120 records --- 44.44%
+Distribution plots
 
-Because the difference between the classes is relatively small, the
-notebook does not use SMOTE, oversampling, or undersampling.
+Count plots
 
-🧹 Data Preprocessing
+Box plots
 
-The notebook uses an 80/20 stratified train/test split:
+Correlation heatmap
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.20,
-    random_state=42,
-    stratify=y
-)
+Feature relationship plots
 
-For Logistic Regression and SVM, StandardScaler is used inside a
-scikit-learn Pipeline.
+Target distribution plots
 
-The categorical values in the dataset are already represented by
-numerical codes, so additional categorical encoding is not required.
+These visualizations help understand the distribution of patient information and the relationship between features and heart disease.
 
-🤖 Models Tested
+🧹 5. Data Cleaning
 
-Three classification models were evaluated.
+The following data cleaning operations were performed:
 
-1. Logistic Regression
+Checked missing values.
 
-Pipeline([
-    ("scaler", StandardScaler()),
-    ("model", LogisticRegression(max_iter=2000))
-])
+Checked duplicate records.
 
-2. Support Vector Machine (SVM)
+Checked data types.
 
-Pipeline([
-    ("scaler", StandardScaler()),
-    ("model", SVC(
-        probability=True,
-        random_state=42
-    ))
-])
+Converted the target variable into numerical values.
 
-3. Random Forest
+Checked for possible outliers.
 
-RandomForestClassifier(
-    n_estimators=300,
-    random_state=42
-)
+Prepared the dataset for Machine Learning.
 
-📈 Model Comparison
+Created a cleaned version of the dataset.
 
-The notebook produced the following test-set results:
+The cleaned dataset is saved as:
 
-Model            Accuracy    Precision       Recall     F1 Score      ROC-AUC
+Clean Heart Disease Prediction.csv
 
-Logistic       0.8519       0.7857   0.9167   0.8462       0.8986
-Regression
+⚙️ 6. Data Preprocessing
 
-SVM                0.8148       0.7692       0.8333       0.8000       0.8861
+The target variable was converted into binary values:
 
-Best initial model
+Absence → 0
 
-Based on the notebook's initial test results, Logistic Regression
-performed best overall:
+Presence → 1
 
-Highest accuracy: 85.19%
+Feature Scaling
 
-Highest recall: 91.67%
+Feature scaling was performed using StandardScaler.
 
-Highest F1 score: 84.62%
+Standardization is useful for Logistic Regression because the features have different numerical ranges.
 
-Highest ROC-AUC: 89.86%
+A Machine Learning Pipeline was used to combine feature scaling and the model.
 
-This is also a useful model for this project because Logistic Regression
-is relatively simple and interpretable.
+✂️ 7. Train-Test Split
 
-🔁 Cross-Validation
+The dataset was divided into training and testing sets.
 
-The notebook uses 5-fold stratified cross-validation:
+Split Configuration
 
-cv = StratifiedKFold(
-    n_splits=5,
-    shuffle=True,
-    random_state=42
-)
+Parameter
 
-For the initial Logistic Regression model:
+	
 
-Cross-validation scores:
-0.8704
-0.8889
-0.7778
-0.7778
-0.8704
+Value
 
-Mean CV Accuracy: 0.8370
 
-⚙️ Hyperparameter Tuning
 
-Hyperparameter tuning is used to find better settings for the Logistic
-Regression model.
 
-The notebook searches:
+Training Data
 
-param_grid = {
-    "model__C": [0.01, 0.1, 1, 10, 100],
-    "model__solver": ["liblinear", "lbfgs"]
-}
+	
 
-GridSearchCV evaluates the combinations using 5-fold cross-validation
-and ROC-AUC.
+80%
 
-Best parameters
 
-The notebook found:
 
-C = 0.01
-solver = lbfgs
 
-Best cross-validation ROC-AUC:
+Testing Data
 
-0.9158
+	
 
-On Windows, if GridSearchCV(n_jobs=-1) causes a
-TerminatedWorkerError, use n_jobs=1 to avoid parallel
-worker-process issues.
+20%
 
-⭐ Final Model: Tuned Logistic Regression
 
-The tuned Logistic Regression model achieved on the held-out test set:
 
-Metric             Score
 
-Accuracy      85.19%
-Precision     83.33%
-Recall        83.33%
-F1 Score      83.33%
-ROC-AUC       90.83%
+Random State
 
-Confusion matrix:
+	
 
-[[26, 4],
- [ 4, 20]]
+42
 
-The tuned model therefore becomes the final model selected by the
-notebook.
 
-📊 Model Evaluation
 
-The project evaluates models using:
+
+Stratification
+
+	
+
+Yes
+
+Stratified splitting was used to maintain the distribution of the target variable in both training and testing datasets.
+
+🤖 8. Model Building
+
+Classification Machine Learning models were considered for the heart disease prediction problem.
+
+The main final model used in the project is:
+
+Logistic Regression
+
+Logistic Regression is suitable for binary classification problems where the target has two possible outcomes.
+
+In this project:
+
+0 = Absence of Heart Disease
+
+1 = Presence of Heart Disease
+
+The model was combined with StandardScaler using a Machine Learning Pipeline.
+
+📊 9. Model Evaluation
+
+Since this is a classification problem, multiple evaluation metrics were used.
+
+Evaluation Metrics
 
 Accuracy
 
@@ -306,65 +369,99 @@ Recall
 
 F1 Score
 
-ROC-AUC
+ROC-AUC Score
 
 Confusion Matrix
 
 Classification Report
 
-Cross-validation
+Accuracy
 
-The notebook also visualizes the Logistic Regression:
+Measures the percentage of correctly predicted observations.
 
-Confusion matrix
+Precision
 
-ROC curve
+Measures how many of the predicted positive cases were actually positive.
 
-Feature coefficients
+Recall
 
-🔍 Feature Importance
+Measures how many of the actual positive cases were correctly identified.
 
-For Logistic Regression, feature coefficients are examined to understand
-which features contribute most strongly to the model.
+F1 Score
 
-The notebook calculates:
+Provides a balance between precision and recall.
 
-coefficients = best_model.named_steps["model"].coef_[0]
+ROC-AUC
 
-and ranks features using the absolute value of their coefficients.
+Measures the model's ability to distinguish between the two classes.
 
-This provides an interpretable view of feature influence, although
-coefficients should not be interpreted as medical causation.
+Confusion Matrix
 
-💾 Saving the Model
+Shows:
 
-The final model can be saved with joblib:
+True Positive
 
-import joblib
+True Negative
 
-joblib.dump(
-    best_model,
-    "model_dir/heart_disease_model.joblib"
-)
+False Positive
 
-Load it later with:
+False Negative
 
-model = joblib.load(
-    "model_dir/heart_disease_model.joblib"
-)
+🔄 10. Cross Validation
 
-Make sure the model_dir folder exists before saving.
+Stratified K-Fold Cross Validation was used to evaluate model performance more reliably.
 
-🖥️ Prediction
+The project uses:
 
-The project can use the trained model through a command-line prediction
-script.
+5 folds
 
-Run:
+Shuffling enabled
 
-python prediction.py
+Random state = 42
 
-The user can enter:
+Cross-validation helps determine whether the model performs consistently across different subsets of the dataset.
+
+🎯 11. Hyperparameter Tuning
+
+Hyperparameter tuning was performed using GridSearchCV.
+
+The Logistic Regression hyperparameters were tuned to identify a better-performing configuration.
+
+The parameters considered include:
+
+Regularization parameter C
+
+Solver
+
+ROC-AUC was used as the scoring metric during hyperparameter tuning.
+
+GridSearchCV helps select the best combination of hyperparameters based on cross-validation performance.
+
+🏆 12. Final Model
+
+After the model evaluation and hyperparameter tuning process, Logistic Regression was selected as the final prediction model.
+
+The final Machine Learning pipeline contains:
+
+StandardScaler + Logistic Regression
+
+The trained model is saved for future predictions.
+
+💾 13. Save the Model
+
+The trained Machine Learning model is saved using Joblib.
+
+Saved Model
+
+heart_disease_model.joblib
+
+The saved model can be loaded later without retraining the complete Machine Learning model.
+
+This saved model is used by the prediction script and Streamlit application.
+
+🔮 14. Prediction
+
+The project includes a prediction system that accepts patient information such as:
 
 Age
 
@@ -372,19 +469,19 @@ Sex
 
 Chest pain type
 
-Blood pressure
+Blood Pressure
 
 Cholesterol
 
-FBS
+FBS over 120
 
 EKG results
 
-Maximum heart rate
+Maximum Heart Rate
 
-Exercise angina
+Exercise Angina
 
-ST depression
+ST Depression
 
 Slope of ST
 
@@ -392,152 +489,87 @@ Number of vessels
 
 Thallium
 
-The model then returns the predicted class and probability.
+The system predicts one of two outcomes:
 
-🌐 Streamlit Application
+Absence
 
-The project can also provide a browser-based interface using Streamlit.
+The model predicts that heart disease is not present.
 
-Run:
+Presence
 
-python -m streamlit run app.py
+The model predicts that heart disease is present.
 
-The application allows the user to enter patient values through a
-graphical interface and displays the model prediction.
+The prediction probability is also displayed.
 
-📝 Logging
+🌐 15. Streamlit Application
 
-The project can record training/application events with Python logging:
+A Streamlit web application was created to provide an easy-to-use interface for the Machine Learning model.
 
-import logging
+The application allows users to:
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler("app.log")
-    ]
-)
+Enter patient details.
 
-logging.info("Model Training started successfully")
-logging.warning("Many values are missing")
-logging.error("Failed to load dataset")
-logging.critical(
-    "Heart Disease prediction application cannot continue"
-)
+Submit the information.
 
-⚙️ Configuration
+Get a heart disease prediction.
 
-If using a .env file:
+View the prediction probability.
 
-DATASET_NAME=C:\Users\sujee\Desktop\Heart_disease prediction1\Heart_Disease_Prediction.csv
-TARGET_COLM=Heart Disease
-TEST_SIZE=0.2
-RANDOM_STATE=42
-MODEL_PATH=model_dir/heart_disease_model.joblib
+Interact with the model through a web interface.
 
-.env is a file, while .venv is the Python virtual-environment
-folder.
+The Streamlit application is contained in:
 
-Do not store passwords, API keys, or other secrets in a public
-repository.
+app.py
 
-📦 Installation
+🚀 16. Deployment
 
-Create a virtual environment:
+The Streamlit application can be deployed online using Streamlit Community Cloud.
 
-python -m venv .venv
+The project is maintained in a GitHub repository and contains the required application files.
 
-Activate it:
+The deployment process includes:
 
-.\.venv\Scripts\activate
+Uploading the project to GitHub.
 
-Install the required packages:
+Adding the required dependencies in requirements.txt.
 
-python -m pip install pandas numpy scikit-learn matplotlib seaborn joblib streamlit python-dotenv
+Connecting the GitHub repository to Streamlit Community Cloud.
 
-Or:
+Selecting app.py as the main application file.
 
-pip install -r requirements.txt
+Deploying the application.
 
-▶️ Running the Project
+📁 17. Project Structure
 
-Train the model
+The main project folder contains the following files:
 
-python training.py
+app.py – Streamlit application
 
-Run command-line prediction
+training.py – Model training script
 
-python prediction.py
+training_log.py – Model training with logging
 
-Run Streamlit
+prediction.py – Patient prediction script
 
-python -m streamlit run app.py
+requirements.txt – Required Python libraries
 
-📁 Recommended Project Structure
-## 📚 Jupyter Notebook
+README.md – Project documentation
 
-The Jupyter Notebook used for data analysis, visualization, model comparison,
-cross-validation, hyperparameter tuning, and model evaluation is maintained
-separately from the main application project folder.
+Heart_Disease_Prediction.csv – Original dataset
 
-Notebook:
-`heart disease prediction.ipynb`
+Clean Heart Disease Prediction.csv – Cleaned dataset
 
+heart_disease_model.joblib – Trained Machine Learning model
 
-Heart_disease prediction1/
-│
-├── .env
-├── .venv/
-│
-├── Heart_Disease_Prediction.csv
-├── Clean Heart Disease Prediction.csv
-├── heart disease prediction.ipynb
-│
-├── training.py
-├── training_log.py
-├── prediction.py
-├── app.py
-├── config.py
-│
-├── requirements.txt
-├── app.log
-│
-└── model_dir/
-    └── heart_disease_model.joblib
+app.log – Application and training log
 
-📚 Project Files
+.env – Project configuration file
 
-File                                   Purpose
+The Jupyter Notebook is maintained separately from the main project folder.
 
-heart disease prediction.ipynb       Main notebook containing EDA,
-preprocessing, model training,
-evaluation, and tuning
+📦 18. Technologies Used
 
-Heart_Disease_Prediction.csv         Original dataset used for training
-
-Clean Heart Disease Prediction.csv   Cleaned/exported dataset
-
-training.py                          Model training script
-
-training_log.py                      Training script with logging
-
-prediction.py                        Command-line prediction script
-
-app.py                               Streamlit user interface
-
-config.py                            Project configuration
-
-.env                                 Environment/configuration variables
-
-requirements.txt                     Python dependencies
-
-app.log                              Application log file
-
-heart_disease_model.joblib           Saved trained model
-
-🧪 Technologies Used
+The following technologies and Python libraries were used:
 
 Python
 
@@ -545,59 +577,194 @@ Pandas
 
 NumPy
 
+Scikit-learn
+
 Matplotlib
 
 Seaborn
-
-Scikit-learn
 
 Joblib
 
 Streamlit
 
-Python Logging
+Python-dotenv
 
-python-dotenv
+Git
 
-Jupyter Notebook
+GitHub
 
-🎓 Viva Summary
+📝 19. Logging
 
-Why Logistic Regression?
+Python logging was implemented to record important events during model training and application execution.
 
-Logistic Regression achieved the strongest overall initial performance
-among the three tested models and provides good interpretability for a
-binary classification problem.
+The logging system records different levels such as:
 
-Why hyperparameter tuning?
+INFO
 
-Hyperparameter tuning searches for the model settings that provide
-better generalization. In this project, GridSearchCV was used to
-tune C and solver for Logistic Regression using 5-fold
-cross-validation and ROC-AUC.
+WARNING
 
-Why no SMOTE?
+ERROR
 
-The target classes are reasonably balanced, with 55.56% absence and
-44.44% presence, so oversampling was not necessary.
+CRITICAL
 
-Why StandardScaler?
+The log information is stored in:
 
-Standardization puts numerical features on comparable scales and is
-especially useful for Logistic Regression and SVM.
+app.log
+
+This helps in monitoring the application and identifying errors during execution.
+
+🔐 20. Environment Configuration
+
+A .env file is used for project configuration.
+
+It can contain settings such as:
+
+Dataset name
+
+Target column
+
+Test size
+
+Random state
+
+Model path
+
+Sensitive information should not be committed to a public GitHub repository.
+
+📋 21. Requirements
+
+The project requires the following Python libraries:
+
+Pandas
+
+NumPy
+
+Scikit-learn
+
+Matplotlib
+
+Seaborn
+
+Joblib
+
+Streamlit
+
+Python-dotenv
+
+All required packages are listed in:
+
+requirements.txt
+
+🔁 22. Project Workflow
+
+Problem Statement
+
+↓
+
+Data Collection
+
+↓
+
+Data Understanding
+
+↓
+
+Exploratory Data Analysis
+
+↓
+
+Data Cleaning
+
+↓
+
+Data Preprocessing
+
+↓
+
+Train-Test Split
+
+↓
+
+Model Building
+
+↓
+
+Model Evaluation
+
+↓
+
+Cross Validation
+
+↓
+
+Hyperparameter Tuning
+
+↓
+
+Save Model
+
+↓
+
+Prediction
+
+↓
+
+Streamlit Application
+
+↓
+
+Deployment
+
+📌 23. Conclusion
+
+This project demonstrates a complete Machine Learning workflow for Heart Disease Prediction.
+
+The project includes all major stages of a Machine Learning project:
+
+Problem definition
+
+Data collection
+
+Data understanding
+
+Exploratory Data Analysis
+
+Data cleaning
+
+Data preprocessing
+
+Train-test splitting
+
+Model building
+
+Model evaluation
+
+Cross-validation
+
+Hyperparameter tuning
+
+Model saving
+
+Prediction
+
+Streamlit application
+
+Deployment
+
+GitHub repository management
+
+The project demonstrates how Machine Learning can be used to build a simple classification system for predicting the presence or absence of heart disease based on patient clinical information.
+
+👩‍💻 Author
+
+SUMITRA NAYAK
+
+MCA Student | Aspiring Data Analyst
 
 ⚠️ Disclaimer
 
-This project is an educational Machine Learning project. The model's
-output is not a medical diagnosis. Real clinical decisions require
-appropriate medical examination, validated clinical tools, and qualified
-healthcare professionals.
+This project is created for educational and Machine Learning demonstration purposes only.
 
-Project Summary
+The prediction generated by this application should not be considered a medical diagnosis.
 
-Heart Disease Prediction --- Supervised Binary Classification using
-Logistic Regression, SVM, and Random Forest, with cross-validation,
-GridSearchCV hyperparameter tuning, model evaluation, model persistence,
-and Streamlit deployment.# Heart Disease Prediction
-
-**Author:** SUMITRA NAYAK
+Medical decisions should always be made by a qualified healthcare professional.
