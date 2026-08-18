@@ -1,0 +1,9 @@
+DATASET_NAME = r"C:\Users\sujee\Desktop\Heart_disease prediction1\Heart_Disease_Prediction.csv"
+
+TARGET_COLM = "Heart Disease"
+
+TEST_SIZE = 0.2
+
+RANDOM_STATE = 42
+
+MODEL_PATH = "model_dir/heart_disease_model.joblib"
