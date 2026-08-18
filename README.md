@@ -86,7 +86,7 @@ The application allows users to enter patient information and receive a Machine 
 | Type | Real-world dataset |
 | Problem Type | Binary Classification |
 | Target | `Heart Disease` |
-| Source | UCI Heart Disease Dataset |
+| Source |Kaggle.com(UCI heart disease dataset) |
 
 </div>
 
