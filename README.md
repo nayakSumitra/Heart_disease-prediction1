@@ -215,7 +215,9 @@ Stratification was used to maintain the target class distribution.
 ## Logistic Regression
 
 The primary Machine Learning model used in this project is:
+🔮 Prediction
 
+The prediction script loads the saved Machine Learning model and accepts patient information.
 ### `Logistic Regression`
 
 Logistic Regression is well suited for binary classification problems.
