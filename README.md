@@ -392,7 +392,7 @@ Deploy
 Live Web Application
 # 📁 Project Structure
 
-```text
+
 Heart Disease Prediction/
 │
 ├── Heart_Disease_Prediction.csv
@@ -414,7 +414,7 @@ Heart Disease Prediction/
 └── README.md
 ### 19. Technologies Used
 
-```markdown
+
 # 🛠️ Technologies Used
 
 | Technology | Purpose |
@@ -436,7 +436,7 @@ Project configuration can be maintained using a `.env` file.
 
 ## Configuration
 
-```text
+
 DATASET_NAME=Heart_Disease_Prediction.csv
 TARGET_COLUMN=Heart Disease
 TEST_SIZE=0.2
@@ -444,7 +444,7 @@ RANDOM_STATE=42
 MODEL_PATH=heart_disease_model.pkl
 ### 23. Complete Workflow
 
-```markdown
+
 # 🔄 Complete Machine Learning Workflow
 
 📥 Data Collection  
