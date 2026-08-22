@@ -529,3 +529,4 @@ Thanks to the open-source Python and Machine Learning community for providing th
 **Made with ❤️ by SUMITRA NAYAK**
 
 </div>
+```
