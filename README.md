@@ -224,7 +224,7 @@ Logistic Regression is well suited for binary classification problems.
 
 The model predicts:
 
-```text
+
 0 → Absence of Heart Disease
 1 → Presence of Heart Disease.
 ## Machine Learning Pipeline
@@ -529,4 +529,4 @@ Thanks to the open-source Python and Machine Learning community for providing th
 **Made with ❤️ by SUMITRA NAYAK**
 
 </div>
-```
+
